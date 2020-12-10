@@ -90,7 +90,7 @@ class Releaser():
 
         print('>>> Building release archive.')
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        build_tar_command = 'tar -czf {}/release/core-{}.tar.gz {}/repo'.format(dir_path, version, dir_path)
+        build_tar_command = 'tar -czf {}/release/core-{}.tar.gz {}/../repo'.format(dir_path, version, dir_path)
 
         try:
             subprocess.check_call(build_tar_command.split())
@@ -140,7 +140,6 @@ class Releaser():
 
         return request_body['version'], True
 
-    
     def __build_new_version(self, release_level, latest_release_version) -> (str, bool):
         print('>>> Building new release version.')
         new_release_version = ''
