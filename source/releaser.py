@@ -70,7 +70,7 @@ class Releaser():
         print('>>> Uploading new release version.')
 
         deployment_bucket = os.environ['DEPLOYMENT_BUCKET']
-        sync_command = 'aws s3 sync source/releaser/release/ {}'.format(deployment_bucket)
+        sync_command = 'aws s3 sync release/ {}'.format(deployment_bucket)
 
         try:
             subprocess.check_call(sync_command.split())
